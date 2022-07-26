@@ -41,7 +41,7 @@ public class RecommendRooms extends BaseTimeEntity {
 
     @Comment(value = "추천매물 신청번호")
     @ManyToOne
-    @JoinColumn(name = "request_seq", foreignKey = @ForeignKey(name = "fk_recommend_request_mapping"))
+    @JoinColumn(name = "request_seq", foreignKey = @ForeignKey(name = "fk_recommend_request_room"))
     private RecommendRoomRequests request;
 
     @Getter
