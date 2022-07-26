@@ -1,8 +1,5 @@
 package com.example.app.domain.recommend.request;
 
-import com.example.app.common.enums.ContractType;
-import com.example.app.common.enums.RoomStructureType;
-import com.example.app.common.enums.RoomType;
 import com.example.app.domain.BaseTimeEntity;
 import java.util.List;
 import javax.persistence.Column;
@@ -15,6 +12,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.Type;
@@ -95,4 +93,38 @@ public class RecommendRoomRequests extends BaseTimeEntity {
     @ColumnDefault(value = "false")
     private boolean isDeleted;
 
+    @Getter
+    @RequiredArgsConstructor
+    public enum ContractType {
+        MONTHLY_RENT("월세"),
+        LEASE("전세"),
+        SALE("매매");
+
+        private final String description;
+    }
+
+    @Getter
+    @RequiredArgsConstructor
+    public enum RoomType {
+        ONE_ROOM("원룸"),
+        TWO_ROOM("투룸"),
+        THREE_ROOM("쓰리룸 이상"),
+        OFFICETEL("오피스텔"),
+        APT("아파트");
+
+        private final String description;
+    }
+
+    @Getter
+    @RequiredArgsConstructor
+    public enum RoomStructureType {
+        ONE_ROOM_KITCHEN_ALL_IN_ONE("주방 일체형"),
+        ONE_ROOM_KITCHEN_DETACHABLE("주방 분리형"),
+        TWO_THREE_ROOM_SINGLE_LAYER("투,쓰리룸 단일층"),
+        TWO_THREE_ROOM_DOUBLE_LAYER("투,쓰리룸 복층"),
+        URBAN_OFFICETEL_ONE_ROOM("오피스텔(도시형 생활주택) 원룸"),
+        URBAN_OFFICETEL_TWO_ROOM("오피스텔(도시형 생활주택) 투룸");
+
+        private final String description;
+    }
 }

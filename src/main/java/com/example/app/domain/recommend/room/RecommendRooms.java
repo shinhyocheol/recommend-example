@@ -28,17 +28,18 @@ public class RecommendRooms extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer seq;
 
+    @Comment(value = "매물 타입")
     @Enumerated(EnumType.STRING)
     @Column(length = 30, nullable = false)
     private Type type;
 
-    @Comment("추천 진행상태")
+    @Comment(value = "추천 진행상태")
     @Enumerated(EnumType.STRING)
     @Column(length = 30, nullable = false)
     @ColumnDefault(value = "'RECOMMEND'")
     private Status status;
 
-    @Comment("추천매물 신청번호")
+    @Comment(value = "추천매물 신청번호")
     @ManyToOne
     @JoinColumn(name = "request_seq", foreignKey = @ForeignKey(name = "fk_recommend_request_mapping"))
     private RecommendRoomRequests request;

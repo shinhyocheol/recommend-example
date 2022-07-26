@@ -1,6 +1,5 @@
 package com.example.app.domain;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import javax.persistence.Column;
 import javax.persistence.EntityListeners;
