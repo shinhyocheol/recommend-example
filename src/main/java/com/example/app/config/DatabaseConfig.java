@@ -53,7 +53,7 @@ public class DatabaseConfig {
         routingDataSource.setTargetDataSources(dataSourceMap);
         routingDataSource.setDefaultTargetDataSource(dabangDataSrouce);
 
-        return routingDataSource;
+        return routingDataSource; 
     }
 
     @Bean(name = "lazyConnectionDataSourceProxy")
