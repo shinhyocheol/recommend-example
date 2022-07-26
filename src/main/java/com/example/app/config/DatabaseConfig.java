@@ -1,5 +1,6 @@
 package com.example.app.config;
 
+import com.example.app.common.enums.DbType;
 import com.example.app.config.database.DynamicRoutingDataSource;
 import com.example.app.config.properties.DabangDatabaseProperties;
 import com.zaxxer.hikari.HikariConfig;
@@ -48,12 +49,12 @@ public class DatabaseConfig {
         DynamicRoutingDataSource routingDataSource = new DynamicRoutingDataSource();
 
         Map<Object, Object> dataSourceMap = new HashMap<>();
-        dataSourceMap.put("DABANG", dabangDataSrouce);
+        dataSourceMap.put(DbType.DABANG, dabangDataSrouce);
 
         routingDataSource.setTargetDataSources(dataSourceMap);
         routingDataSource.setDefaultTargetDataSource(dabangDataSrouce);
 
-        return routingDataSource; 
+        return routingDataSource;
     }
 
     @Bean(name = "lazyConnectionDataSourceProxy")
