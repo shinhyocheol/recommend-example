@@ -2,6 +2,9 @@ package com.example.app.domain.recommend.room;
 
 import com.example.app.domain.BaseTimeEntity;
 import com.example.app.domain.recommend.request.RecommendRoomRequests;
+import com.example.app.domain.room.basic.RoomInfo;
+import com.example.app.domain.room.sign.SignRooms;
+import com.example.app.domain.room.simple.SimpleRooms;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -43,6 +46,29 @@ public class RecommendRooms extends BaseTimeEntity {
     @ManyToOne
     @JoinColumn(name = "request_seq", foreignKey = @ForeignKey(name = "fk_recommend_request_room"))
     private RecommendRoomRequests request;
+
+    @Comment(value = "일반매물 번호")
+    @ManyToOne
+    @Column(nullable = true)
+    @JoinColumn(name = "rooms_seq", foreignKey = @ForeignKey(name = "fk_room_recommend_room"))
+    private RoomInfo room;
+
+    @Comment(value = "간편매물 번호")
+    @ManyToOne
+    @Column(nullable = true)
+    @JoinColumn(name = "simple_rooms_seq", foreignKey = @ForeignKey(name = "fk_simple_room_recommend_room"))
+    private SimpleRooms simpleRoom;
+
+    @Comment(value = "싸인매물 번호")
+    @ManyToOne
+    @Column(nullable = true)
+    @JoinColumn(name = "sign_rooms_seq", foreignKey = @ForeignKey(name = "fk_sign_room_recommend_room"))
+    private SignRooms signRoom;
+
+    @Comment(value = "삭제여부")
+    @Column(nullable = false)
+    @ColumnDefault(value = "false")
+    private Boolean isDeleted;
 
     @Getter
     @RequiredArgsConstructor
