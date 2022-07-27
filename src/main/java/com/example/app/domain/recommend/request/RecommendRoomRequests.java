@@ -10,6 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
@@ -126,5 +127,40 @@ public class RecommendRoomRequests extends BaseTimeEntity {
         URBAN_OFFICETEL_TWO_ROOM("오피스텔(도시형 생활주택) 투룸");
 
         private final String description;
+    }
+
+    @Builder
+    public RecommendRoomRequests (
+            Boolean isActive,
+            String jibunAddress,
+            String roadAddress,
+            List<Integer> regionGids,
+            List<Integer> subwayIds,
+            ContractType contractType,
+            Long deposit,
+            Long rentPrice,
+            BigIntegerType roomSize,
+            RoomType roomType,
+            RoomStructureType structureType,
+            Integer roomFloor,
+            BigIntegerType maintenanceCost,
+            String memo,
+            Boolean isDeleted) {
+
+        this.isActive = isActive;
+        this.jibunAddress = jibunAddress;
+        this.roadAddress = roadAddress;
+        this.regionGids = regionGids;
+        this.subwayIds = subwayIds;
+        this.contractType = contractType;
+        this.deposit = deposit;
+        this.rentPrice = rentPrice;
+        this.roomSize = roomSize;
+        this.roomType = roomType;
+        this.roomStructureType = structureType;
+        this.roomFloor = roomFloor;
+        this.maintenanceCost = maintenanceCost;
+        this.memo = memo;
+        this.isDeleted = isDeleted;
     }
 }
