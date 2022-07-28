@@ -9,6 +9,7 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -46,17 +47,17 @@ public class RecommendRooms extends BaseTimeEntity {
     private RecommendRoomRequests request;
 
     @Comment(value = "일반매물 번호")
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "rooms_seq", foreignKey = @ForeignKey(name = "fk_room_recommend_room"))
     private RoomInfo room;
 
     @Comment(value = "간편매물 번호")
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "simple_rooms_seq", foreignKey = @ForeignKey(name = "fk_simple_room_recommend_room"))
     private SimpleRooms simpleRoom;
 
     @Comment(value = "싸인매물 번호")
-    @ManyToOne(optional = true)
+    @ManyToOne(optional = true, fetch = FetchType.LAZY)
     @JoinColumn(name = "sign_rooms_seq", foreignKey = @ForeignKey(name = "fk_sign_room_recommend_room"))
     private SignRooms signRoom;
 
