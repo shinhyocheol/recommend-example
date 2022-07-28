@@ -44,22 +44,34 @@ public class RecommendRooms extends BaseTimeEntity {
 
     @Comment(value = "추천매물 신청번호")
     @ManyToOne
-    @JoinColumn(name = "request_seq", foreignKey = @ForeignKey(name = "fk_recommend_rooms_recommend_requests_seq"))
+    @JoinColumn(
+            name = "request_seq",
+            foreignKey = @ForeignKey(name = "fk_recommend_rooms_recommend_requests_seq")
+    )
     private RecommendRoomRequests request;
 
     @Comment(value = "일반매물 번호")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "rooms_seq", foreignKey = @ForeignKey(name = "fk_recommend_rooms_room_info_seq"))
+    @JoinColumn(
+            name = "rooms_seq",
+            foreignKey = @ForeignKey(name = "fk_recommend_rooms_room_info_seq")
+    )
     private RoomInfo room;
 
     @Comment(value = "간편매물 번호")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "simple_rooms_seq", foreignKey = @ForeignKey(name = "fk_recommend_room_simple_rooms_seq"))
+    @JoinColumn(
+            name = "simple_rooms_seq",
+            foreignKey = @ForeignKey(name = "fk_recommend_room_simple_rooms_seq")
+    )
     private SimpleRooms simpleRoom;
 
     @Comment(value = "싸인매물 번호")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "sign_rooms_seq", foreignKey = @ForeignKey(name = "fk_recommend_rooms_sign_rooms_seq"))
+    @JoinColumn(
+            name = "sign_rooms_seq",
+            foreignKey = @ForeignKey(name = "fk_recommend_rooms_sign_rooms_seq")
+    )
     private SignRooms signRoom;
 
     @Comment(value = "신청회원 번호")
