@@ -5,6 +5,7 @@ import com.example.app.domain.recommend.request.RecommendRoomRequests;
 import com.example.app.domain.room.basic.RoomInfo;
 import com.example.app.domain.room.sign.SignRooms;
 import com.example.app.domain.room.simple.SimpleRooms;
+import com.example.app.domain.user.Users;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -43,23 +44,32 @@ public class RecommendRooms extends BaseTimeEntity {
 
     @Comment(value = "추천매물 신청번호")
     @ManyToOne
-    @JoinColumn(name = "request_seq", foreignKey = @ForeignKey(name = "fk_recommend_request_room"))
+    @JoinColumn(name = "request_seq", foreignKey = @ForeignKey(name = "fk_recommend_rooms_recommend_requests_seq"))
     private RecommendRoomRequests request;
 
     @Comment(value = "일반매물 번호")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "rooms_seq", foreignKey = @ForeignKey(name = "fk_room_recommend_room"))
+    @JoinColumn(name = "rooms_seq", foreignKey = @ForeignKey(name = "fk_recommend_rooms_room_info_seq"))
     private RoomInfo room;
 
     @Comment(value = "간편매물 번호")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "simple_rooms_seq", foreignKey = @ForeignKey(name = "fk_simple_room_recommend_room"))
+    @JoinColumn(name = "simple_rooms_seq", foreignKey = @ForeignKey(name = "fk_recommend_room_simple_rooms_seq"))
     private SimpleRooms simpleRoom;
 
     @Comment(value = "싸인매물 번호")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
-    @JoinColumn(name = "sign_rooms_seq", foreignKey = @ForeignKey(name = "fk_sign_room_recommend_room"))
+    @JoinColumn(name = "sign_rooms_seq", foreignKey = @ForeignKey(name = "fk_recommend_rooms_sign_rooms_seq"))
     private SignRooms signRoom;
+
+    @Comment(value = "신청회원 번호")
+    @ManyToOne(optional = false, fetch = FetchType.LAZY)
+    @JoinColumn(
+            name = "users_seq",
+            referencedColumnName = "idx",
+            foreignKey = @ForeignKey(name = "fk_recommend_rooms_users_idx")
+    )
+    private Users user;
 
     @Comment(value = "삭제여부")
     @Column(nullable = false, columnDefinition = "boolean default false")
