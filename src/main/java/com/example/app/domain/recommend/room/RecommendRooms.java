@@ -19,7 +19,6 @@ import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 
 @Getter
@@ -38,8 +37,7 @@ public class RecommendRooms extends BaseTimeEntity {
 
     @Comment(value = "추천 진행상태")
     @Enumerated(EnumType.STRING)
-    @Column(length = 30, nullable = false)
-    @ColumnDefault(value = "'RECOMMEND'")
+    @Column(nullable = false, columnDefinition = "varchar(30) default 'RECOMMEND'")
     private Status status;
 
     @Comment(value = "추천매물 신청번호")
@@ -63,8 +61,7 @@ public class RecommendRooms extends BaseTimeEntity {
     private SignRooms signRoom;
 
     @Comment(value = "삭제여부")
-    @Column(nullable = false)
-    @ColumnDefault(value = "false")
+    @Column(nullable = false, columnDefinition = "boolean default false")
     private Boolean isDeleted;
 
     @Getter

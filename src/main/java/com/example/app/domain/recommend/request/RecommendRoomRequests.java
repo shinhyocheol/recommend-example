@@ -14,7 +14,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
-import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
@@ -31,8 +30,7 @@ public class RecommendRoomRequests extends BaseTimeEntity {
     private Integer seq;
 
     @Comment(value = "활성화 여부")
-    @Column(nullable = false)
-    @ColumnDefault(value = "true")
+    @Column(nullable = false, columnDefinition = "boolean default true")
     private Boolean isActive;
 
     @Comment(value = "지번 주소")
@@ -87,11 +85,11 @@ public class RecommendRoomRequests extends BaseTimeEntity {
     private BigIntegerType maintenanceCost;
 
     @Comment(value = "메모")
-    @Column(columnDefinition = "TEXT")
+    @Column(columnDefinition = "text")
     private String memo;
 
     @Comment(value = "삭제여부")
-    @ColumnDefault(value = "false")
+    @Column(columnDefinition = "boolean default false")
     private boolean isDeleted;
 
     @Getter
