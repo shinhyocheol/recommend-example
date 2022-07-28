@@ -130,23 +130,11 @@ public class RecommendRoomRequests extends BaseTimeEntity {
     }
 
     @Builder
-    public RecommendRoomRequests (
-            Boolean isActive,
-            String jibunAddress,
-            String roadAddress,
-            List<Integer> regionGids,
-            List<Integer> subwayIds,
-            ContractType contractType,
-            Long deposit,
-            Long rentPrice,
-            BigIntegerType roomSize,
-            RoomType roomType,
-            RoomStructureType structureType,
-            Integer roomFloor,
-            BigIntegerType maintenanceCost,
-            String memo,
-            Boolean isDeleted) {
-
+    public RecommendRoomRequests (Boolean isActive, String jibunAddress, String roadAddress,
+            List<Integer> regionGids, List<Integer> subwayIds, ContractType contractType,
+            Long deposit, Long rentPrice, BigIntegerType roomSize, RoomType roomType,
+            RoomStructureType structureType, Integer roomFloor, BigIntegerType maintenanceCost,
+            String memo, Boolean isDeleted) {
         this.isActive = isActive;
         this.jibunAddress = jibunAddress;
         this.roadAddress = roadAddress;

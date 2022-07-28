@@ -48,20 +48,17 @@ public class RecommendRooms extends BaseTimeEntity {
     private RecommendRoomRequests request;
 
     @Comment(value = "일반매물 번호")
-    @ManyToOne
-    @Column(nullable = true)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "rooms_seq", foreignKey = @ForeignKey(name = "fk_room_recommend_room"))
     private RoomInfo room;
 
     @Comment(value = "간편매물 번호")
-    @ManyToOne
-    @Column(nullable = true)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "simple_rooms_seq", foreignKey = @ForeignKey(name = "fk_simple_room_recommend_room"))
     private SimpleRooms simpleRoom;
 
     @Comment(value = "싸인매물 번호")
-    @ManyToOne
-    @Column(nullable = true)
+    @ManyToOne(optional = true)
     @JoinColumn(name = "sign_rooms_seq", foreignKey = @ForeignKey(name = "fk_sign_room_recommend_room"))
     private SignRooms signRoom;
 
