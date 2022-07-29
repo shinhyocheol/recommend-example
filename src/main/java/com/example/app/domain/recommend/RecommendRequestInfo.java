@@ -1,6 +1,5 @@
-package com.example.app.domain.request;
+package com.example.app.domain.recommend;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.List;
 import lombok.Getter;
@@ -11,8 +10,7 @@ import org.hibernate.type.BigIntegerType;
 @ToString
 @Getter
 @RequiredArgsConstructor
-public class RoomRequestInfo {
-
+public class RecommendRequestInfo {
     private final Integer seq;
     private final Boolean isActive;
     private final List<Integer> regionGidList;
@@ -29,8 +27,8 @@ public class RoomRequestInfo {
     private final ZonedDateTime savedTime;
     private final ZonedDateTime editedTime;
 
-    public static RoomRequestInfo of(RoomRequests request) {
-        return new RoomRequestInfo(
+    public static RecommendRequestInfo of(RecommendRequests request) {
+        return new RecommendRequestInfo(
                 request.getSeq(),
                 request.getIsActive(),
                 request.getRegionGidList(),
@@ -47,7 +45,5 @@ public class RoomRequestInfo {
                 request.getSavedTime(),
                 request.getEditedTime()
         );
-
     }
-
 }

@@ -1,8 +1,7 @@
-package com.example.app.domain.room;
+package com.example.app.domain.recommend;
 
 import com.example.app.domain.BaseTimeEntity;
-import com.example.app.domain.request.RoomRequests;
-import com.example.app.domain.item.basic.RoomInfo;
+import com.example.app.domain.item.basic.Rooms;
 import com.example.app.domain.item.sign.SignRooms;
 import com.example.app.domain.item.simple.SimpleRooms;
 import com.example.app.domain.user.Users;
@@ -27,7 +26,7 @@ import org.hibernate.annotations.Comment;
 @Entity
 @NoArgsConstructor
 @Table(name = "recommend_rooms")
-public class Rooms extends BaseTimeEntity {
+public class RecommendRooms extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer seq;
@@ -48,7 +47,7 @@ public class Rooms extends BaseTimeEntity {
             name = "request_seq",
             foreignKey = @ForeignKey(name = "fk_recommend_rooms_recommend_requests_seq")
     )
-    private RoomRequests request;
+    private RecommendRequests request;
 
     @Comment(value = "일반매물 번호")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)
@@ -56,7 +55,7 @@ public class Rooms extends BaseTimeEntity {
             name = "rooms_seq",
             foreignKey = @ForeignKey(name = "fk_recommend_rooms_room_info_seq")
     )
-    private RoomInfo room;
+    private Rooms room;
 
     @Comment(value = "간편매물 번호")
     @ManyToOne(optional = true, fetch = FetchType.LAZY)

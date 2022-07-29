@@ -18,7 +18,7 @@ import org.hibernate.annotations.Comment;
 @Entity
 @NoArgsConstructor
 @Table(name = "room_info")
-public class RoomInfo {
+public class Rooms {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer seq;

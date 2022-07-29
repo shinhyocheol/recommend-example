@@ -1,4 +1,4 @@
-package com.example.app.domain.request;
+package com.example.app.domain.recommend;
 
 import com.example.app.domain.BaseTimeEntity;
 import java.util.List;
@@ -24,7 +24,7 @@ import org.hibernate.type.BigIntegerType;
 @NoArgsConstructor
 @TypeDef(name = "intList", typeClass = org.hibernate.mapping.List.class)
 @Table(name = "recommend_room_requests")
-public class RoomRequests extends BaseTimeEntity {
+public class RecommendRequests extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer seq;
@@ -128,7 +128,7 @@ public class RoomRequests extends BaseTimeEntity {
     }
 
     @Builder
-    public RoomRequests(Boolean isActive, String jibunAddress, String roadAddress,
+    public RecommendRequests(Boolean isActive, String jibunAddress, String roadAddress,
             List<Integer> regionGidList, List<Integer> subwayIdList, ContractType contractType,
             Long deposit, Long rentPrice, BigIntegerType roomSize, RoomType roomType,
             RoomStructureType structureType, Integer roomFloor, BigIntegerType maintenanceCost,
