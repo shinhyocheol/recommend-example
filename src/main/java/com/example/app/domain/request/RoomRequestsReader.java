@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface RoomRequestsReader {
 
-    List<RoomRequests> getRoomRequestList();
+    List<RoomRequestInfo> getRoomRequestList();
 }

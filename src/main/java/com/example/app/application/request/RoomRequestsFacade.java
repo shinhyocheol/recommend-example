@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 public class RoomRequestsFacade {
     private final RoomRequestsService roomRequestsService;
 
-    public List<RoomRequestInfo> roomRequestInfo() {
+    public List<RoomRequestInfo> roomRequestList() {
         return roomRequestsService.roomRequestList();
     }
 }

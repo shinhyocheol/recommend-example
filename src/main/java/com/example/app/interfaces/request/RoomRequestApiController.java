@@ -17,8 +17,8 @@ public class RoomRequestApiController {
     private final RoomRequestsFacade roomRequestsFacade;
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public CommonResponse getRecommendRooms() {
-
+    public CommonResponse getRoomRequest() {
+        var roomRequestList = roomRequestsFacade.roomRequestList();
         return null;
     }
 }

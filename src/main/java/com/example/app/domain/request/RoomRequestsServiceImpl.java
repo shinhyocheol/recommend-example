@@ -15,7 +15,6 @@ public class RoomRequestsServiceImpl implements RoomRequestsService {
     @Override
     @Transactional(readOnly = true)
     public List<RoomRequestInfo> roomRequestList() {
-        List<RoomRequests> request = roomRequestsReader.getRoomRequestList();
-        return null;
+        return roomRequestsReader.getRoomRequestList();
     }
 }
