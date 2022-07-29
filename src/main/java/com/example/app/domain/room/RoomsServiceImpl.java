@@ -1,4 +1,4 @@
-package com.example.app.domain.recommend.room;
+package com.example.app.domain.room;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.example.app.domain.recommend.request;
+package com.example.app.domain.request;
 
 import com.example.app.domain.BaseTimeEntity;
 import java.util.List;
@@ -43,13 +43,13 @@ public class RoomRequests extends BaseTimeEntity {
 
     @Comment(value = "지역 코드목록")
     @Type(type = "intList")
-    @Column(columnDefinition = "integer[]")
-    private List<Integer> regionGids;
+    @Column(name = "regionGids", columnDefinition = "integer[]")
+    private List<Integer> regionGidList;
 
     @Comment(value = "지하철역 코드목록")
     @Type(type = "intList")
-    @Column(columnDefinition = "integer[]")
-    private List<Integer> subwayIds;
+    @Column(name = "subwayIds", columnDefinition = "integer[]")
+    private List<Integer> subwayIdList;
 
     @Comment(value = "매물 거래 타입")
     @Enumerated(EnumType.STRING)
@@ -129,15 +129,15 @@ public class RoomRequests extends BaseTimeEntity {
 
     @Builder
     public RoomRequests(Boolean isActive, String jibunAddress, String roadAddress,
-            List<Integer> regionGids, List<Integer> subwayIds, ContractType contractType,
+            List<Integer> regionGidList, List<Integer> subwayIdList, ContractType contractType,
             Long deposit, Long rentPrice, BigIntegerType roomSize, RoomType roomType,
             RoomStructureType structureType, Integer roomFloor, BigIntegerType maintenanceCost,
             String memo, Boolean isDeleted) {
         this.isActive = isActive;
         this.jibunAddress = jibunAddress;
         this.roadAddress = roadAddress;
-        this.regionGids = regionGids;
-        this.subwayIds = subwayIds;
+        this.regionGidList = regionGidList;
+        this.subwayIdList = subwayIdList;
         this.contractType = contractType;
         this.deposit = deposit;
         this.rentPrice = rentPrice;

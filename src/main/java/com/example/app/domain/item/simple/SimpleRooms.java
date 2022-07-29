@@ -1,4 +1,4 @@
-package com.example.app.domain.room.simple;
+package com.example.app.domain.item.simple;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

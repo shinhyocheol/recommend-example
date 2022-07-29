@@ -1,10 +1,10 @@
-package com.example.app.domain.recommend.room;
+package com.example.app.domain.room;
 
 import com.example.app.domain.BaseTimeEntity;
-import com.example.app.domain.recommend.request.RoomRequests;
-import com.example.app.domain.room.basic.RoomInfo;
-import com.example.app.domain.room.sign.SignRooms;
-import com.example.app.domain.room.simple.SimpleRooms;
+import com.example.app.domain.request.RoomRequests;
+import com.example.app.domain.item.basic.RoomInfo;
+import com.example.app.domain.item.sign.SignRooms;
+import com.example.app.domain.item.simple.SimpleRooms;
 import com.example.app.domain.user.Users;
 import javax.persistence.Column;
 import javax.persistence.Entity;

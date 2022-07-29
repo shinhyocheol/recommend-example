@@ -1,4 +1,4 @@
-package com.example.app.domain.room.sign;
+package com.example.app.domain.item.sign;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

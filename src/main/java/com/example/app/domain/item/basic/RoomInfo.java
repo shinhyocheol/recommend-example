@@ -1,4 +1,4 @@
-package com.example.app.domain.room.basic;
+package com.example.app.domain.item.basic;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
