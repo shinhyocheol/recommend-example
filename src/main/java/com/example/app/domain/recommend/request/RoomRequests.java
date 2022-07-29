@@ -24,7 +24,7 @@ import org.hibernate.type.BigIntegerType;
 @NoArgsConstructor
 @TypeDef(name = "intList", typeClass = org.hibernate.mapping.List.class)
 @Table(name = "recommend_room_requests")
-public class RecommendRoomRequests extends BaseTimeEntity {
+public class RoomRequests extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer seq;
@@ -128,7 +128,7 @@ public class RecommendRoomRequests extends BaseTimeEntity {
     }
 
     @Builder
-    public RecommendRoomRequests (Boolean isActive, String jibunAddress, String roadAddress,
+    public RoomRequests(Boolean isActive, String jibunAddress, String roadAddress,
             List<Integer> regionGids, List<Integer> subwayIds, ContractType contractType,
             Long deposit, Long rentPrice, BigIntegerType roomSize, RoomType roomType,
             RoomStructureType structureType, Integer roomFloor, BigIntegerType maintenanceCost,
