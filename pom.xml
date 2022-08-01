@@ -16,6 +16,7 @@
   <description>recommend-example</description>
   <properties>
     <java.version>11</java.version>
+    <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
   </properties>
 
   <dependencies>
@@ -54,6 +55,13 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+    <dependency>
+      <groupId>org.mapstruct</groupId>
+      <artifactId>mapstruct</artifactId>
+      <version>${org.mapstruct.version}</version>
+      <scope>provided</scope>
     </dependency>
   </dependencies>
 

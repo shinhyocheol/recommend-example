@@ -29,18 +29,6 @@ public class RecommendRequests extends BaseTimeEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer seq;
 
-    @Comment(value = "활성화 여부")
-    @Column(nullable = false, columnDefinition = "boolean default true")
-    private Boolean isActive;
-
-    @Comment(value = "지번 주소")
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String jibunAddress;
-
-    @Comment(value = "도로명 주소")
-    @Column(columnDefinition = "TEXT", nullable = false)
-    private String roadAddress;
-
     @Comment(value = "지역 코드목록")
     @Type(type = "intList")
     @Column(name = "regionGids", columnDefinition = "integer[]")
@@ -88,6 +76,10 @@ public class RecommendRequests extends BaseTimeEntity {
     @Column(columnDefinition = "text")
     private String memo;
 
+    @Comment(value = "활성화 여부")
+    @Column(nullable = false, columnDefinition = "boolean default true")
+    private Boolean isActive;
+
     @Comment(value = "삭제여부")
     @Column(columnDefinition = "boolean default false")
     private boolean isDeleted;
@@ -121,21 +113,19 @@ public class RecommendRequests extends BaseTimeEntity {
         ONE_ROOM_KITCHEN_DETACHABLE("주방 분리형"),
         TWO_THREE_ROOM_SINGLE_LAYER("투,쓰리룸 단일층"),
         TWO_THREE_ROOM_DOUBLE_LAYER("투,쓰리룸 복층"),
-        URBAN_OFFICETEL_ONE_ROOM("오피스텔(도시형 생활주택) 원룸"),
-        URBAN_OFFICETEL_TWO_ROOM("오피스텔(도시형 생활주택) 투룸");
+        OFFICETEL_ONE_ROOM("오피스텔 원룸"),
+        OFFICETEL_TWO_ROOM("오피스텔 투룸");
 
         private final String description;
     }
 
     @Builder
-    public RecommendRequests(Boolean isActive, String jibunAddress, String roadAddress,
-            List<Integer> regionGidList, List<Integer> subwayIdList, ContractType contractType,
-            Long deposit, Long rentPrice, BigIntegerType roomSize, RoomType roomType,
-            RoomStructureType structureType, Integer roomFloor, BigIntegerType maintenanceCost,
-            String memo, Boolean isDeleted) {
+    public RecommendRequests(Boolean isActive, List<Integer> regionGidList,
+            List<Integer> subwayIdList, ContractType contractType, Long deposit,
+            Long rentPrice, BigIntegerType roomSize, RoomType roomType,
+            RoomStructureType structureType, Integer roomFloor,
+            BigIntegerType maintenanceCost, String memo, Boolean isDeleted) {
         this.isActive = isActive;
-        this.jibunAddress = jibunAddress;
-        this.roadAddress = roadAddress;
         this.regionGidList = regionGidList;
         this.subwayIdList = subwayIdList;
         this.contractType = contractType;
