@@ -13,7 +13,7 @@ public class RecommendRequestDto {
     @Getter
     @Setter
     @ToString
-    public static class AddRecommendRequest {
+    public static class AddParam {
         private List<Integer> regionGidList;
         private List<Integer> subwayIdList;
         private ContractType contractType;
@@ -30,7 +30,7 @@ public class RecommendRequestDto {
     @Getter
     @Setter
     @ToString
-    public static class EditRecommendRequest {
+    public static class EditParam {
         private Integer recommendRequestsSeq;
         private List<Integer> regionGidList;
         private List<Integer> subwayIdList;

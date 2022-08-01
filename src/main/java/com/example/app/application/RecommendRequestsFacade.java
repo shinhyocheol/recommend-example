@@ -1,5 +1,7 @@
 package com.example.app.application;
 
+import com.example.app.domain.request.RecommendRequestCommand;
+import com.example.app.domain.request.RecommendRequestCommand.RegisterRecommendRequest;
 import com.example.app.domain.request.RecommendRequestInfo;
 import com.example.app.domain.request.RecommendRequestsService;
 import java.util.List;
@@ -15,5 +17,9 @@ public class RecommendRequestsFacade {
 
     public List<RecommendRequestInfo> getRecommendRequestList() {
         return recommendRequestsService.getRecommendRequestList();
+    }
+
+    public void addRecommendRequest(RegisterRecommendRequest command) {
+        recommendRequestsService.addRecommendRequest(command);
     }
 }

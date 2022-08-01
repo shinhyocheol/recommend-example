@@ -1,9 +1,17 @@
 package com.example.app.infrastructure.reqeust;
 
+import com.example.app.domain.request.RecommendRequests;
 import com.example.app.domain.request.RecommendRequestsStore;
-import org.springframework.stereotype.Service;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 
-@Service
+@Component
+@RequiredArgsConstructor
 public class RecommendRequestsStoreImpl implements RecommendRequestsStore {
+    private final RecommendRequestsRepository recommendRequestsRepository;
 
+    @Override
+    public void store(RecommendRequests recommendRequests) {
+        recommendRequestsRepository.save(recommendRequests);
+    }
 }

@@ -1,5 +1,6 @@
 package com.example.app.domain.request;
 
+import com.example.app.domain.request.RecommendRequestCommand.RegisterRecommendRequest;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -16,5 +17,12 @@ public class RecommendRequestsServiceImpl implements RecommendRequestsService {
     public List<RecommendRequestInfo> getRecommendRequestList() {
         List<RecommendRequestInfo> result = recommendRequestsReader.getRecommendRequestList();
         return result;
+    }
+
+    @Override
+    @Transactional
+    public void addRecommendRequest(RegisterRecommendRequest command) {
+        RecommendRequests recommendRequests = command.toEntity();
+        recommendRequestsStore.store(recommendRequests);
     }
 }

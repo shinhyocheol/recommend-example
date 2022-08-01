@@ -19,18 +19,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/recommend/requests")
 public class RecommendRequestApiController {
-    private final RecommendRequestsFacade recommendRequestsFacade;
-    // private final RecommendRequestDtoMapper recommendRequestDtoMapper;
+    private final RecommendRequestsFacade facade;
+    private final RecommendRequestMapStruct mapStruct;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CommonResponse addRecommendRequest(@RequestBody @Valid RecommendRequestDto.AddRecommendRequest addParam) {
-//         recommendRequestsFacade.addRecommendRequest();
-        return CommonResponse.success(null);
+    public void addRecommendRequest(@RequestBody @Valid RecommendRequestDto.AddParam param) {
+        facade.addRecommendRequest(mapStruct.of(param));
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public CommonResponse getRecommendRequestList() {
-        List<RecommendRequestInfo> recommendRequestList = recommendRequestsFacade.getRecommendRequestList();
+        List<RecommendRequestInfo> recommendRequestList = facade.getRecommendRequestList();
         return CommonResponse.success(recommendRequestList);
     }
 }
