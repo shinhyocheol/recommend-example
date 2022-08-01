@@ -1,7 +1,6 @@
 package com.example.app.interfaces;
 
 import java.util.List;
-import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 import lombok.Getter;

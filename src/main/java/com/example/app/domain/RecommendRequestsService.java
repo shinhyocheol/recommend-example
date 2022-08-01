@@ -1,8 +1,8 @@
-package com.example.app.domain.recommend;
+package com.example.app.domain;
 
 import java.util.List;
 
-public interface RecommendRequestsReader {
+public interface RecommendRequestsService {
 
     List<RecommendRequestInfo> getRecommendRequestList();
 }

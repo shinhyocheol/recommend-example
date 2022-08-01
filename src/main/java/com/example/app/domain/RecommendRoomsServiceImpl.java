@@ -1,4 +1,4 @@
-package com.example.app.domain.recommend;
+package com.example.app.domain;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

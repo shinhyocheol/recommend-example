@@ -1,4 +1,4 @@
-package com.example.app.domain.recommend;
+package com.example.app.domain;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
@@ -13,7 +13,7 @@ public class RecommendRequestsServiceImpl implements RecommendRequestsService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<RecommendRequestInfo> recommendRequestList() {
+    public List<RecommendRequestInfo> getRecommendRequestList() {
         return recommendRequestsReader.getRecommendRequestList();
     }
 }

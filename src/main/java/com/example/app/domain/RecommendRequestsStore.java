@@ -1,4 +1,4 @@
-package com.example.app.domain.recommend;
+package com.example.app.domain;
 
 public interface RecommendRequestsStore {
 

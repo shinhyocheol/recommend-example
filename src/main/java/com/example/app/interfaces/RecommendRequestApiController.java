@@ -2,7 +2,7 @@ package com.example.app.interfaces;
 
 import com.example.app.application.RecommendRequestsFacade;
 import com.example.app.common.response.CommonResponse;
-import com.example.app.domain.recommend.RecommendRequestInfo;
+import com.example.app.domain.RecommendRequestInfo;
 import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping(value = "/api/v1/recommend/requests")
 public class RecommendRequestApiController {
     private final RecommendRequestsFacade recommendRequestsFacade;
-    private final RecommendRequestDtoMapper recommendRequestDtoMapper;
+    // private final RecommendRequestDtoMapper recommendRequestDtoMapper;
 
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public CommonResponse addRecommendRequest(@RequestBody @Valid RecommendRequestDto.AddRecommendRequest addParam) {
@@ -29,8 +29,8 @@ public class RecommendRequestApiController {
     }
 
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-    public CommonResponse getRoomRequest() {
-        List<RecommendRequestInfo> recommendRequestList = recommendRequestsFacade.recommendRequestList();
+    public CommonResponse getRecommendRequestList() {
+        List<RecommendRequestInfo> recommendRequestList = recommendRequestsFacade.getRecommendRequestList();
         return CommonResponse.success(recommendRequestList);
     }
 }

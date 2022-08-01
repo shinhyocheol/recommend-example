@@ -1,4 +1,4 @@
-package com.example.app.domain.recommend;
+package com.example.app.domain;
 
 import com.example.app.domain.BaseTimeEntity;
 import com.example.app.enums.ContractType;
