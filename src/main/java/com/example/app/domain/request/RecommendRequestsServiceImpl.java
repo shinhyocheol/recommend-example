@@ -14,6 +14,7 @@ public class RecommendRequestsServiceImpl implements RecommendRequestsService {
     @Override
     @Transactional(readOnly = true)
     public List<RecommendRequestInfo> getRecommendRequestList() {
-        return recommendRequestsReader.getRecommendRequestList();
+        List<RecommendRequestInfo> result = recommendRequestsReader.getRecommendRequestList();
+        return result;
     }
 }

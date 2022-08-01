@@ -86,6 +86,9 @@ public class RecommendRequests extends BaseTimeEntity {
     @Column(columnDefinition = "boolean default false")
     private boolean isDeleted;
 
+    @Comment(value = "신청 회원 번호")
+    private Integer usersIdx;
+
     @Builder
     public RecommendRequests(Boolean isActive, List<Integer> regionGidList,
             List<Integer> subwayIdList, ContractType contractType, Long deposit,

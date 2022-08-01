@@ -11,4 +11,8 @@ public enum ContractType {
     SALE("매매");
 
     private final String description;
+
+    public static ContractType of(String contractType) {
+        return ContractType.valueOf(contractType);
+    }
 }

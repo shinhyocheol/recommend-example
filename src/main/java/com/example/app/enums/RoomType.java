@@ -13,4 +13,8 @@ public enum RoomType {
     APT("아파트");
 
     private final String description;
+
+    public static RoomType of(String roomType) {
+        return RoomType.valueOf(roomType);
+    }
 }

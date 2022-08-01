@@ -1,4 +1,4 @@
-package com.example.app.config.database;
+package com.example.app.configuration.database;
 
 import com.example.app.common.enums.DbType;
 import com.example.app.common.util.AssertUtil;

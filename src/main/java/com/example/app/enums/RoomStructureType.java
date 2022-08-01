@@ -14,4 +14,8 @@ public enum RoomStructureType {
     OFFICETEL_TWO_ROOM("오피스텔 투룸");
 
     private final String description;
+
+    public static RoomStructureType of(String roomStructureType) {
+        return RoomStructureType.valueOf(roomStructureType);
+    }
 }

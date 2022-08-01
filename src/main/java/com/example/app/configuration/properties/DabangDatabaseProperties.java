@@ -1,4 +1,4 @@
-package com.example.app.config.properties;
+package com.example.app.configuration.properties;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;

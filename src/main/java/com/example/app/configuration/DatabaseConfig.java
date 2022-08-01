@@ -1,8 +1,8 @@
-package com.example.app.config;
+package com.example.app.configuration;
 
 import com.example.app.common.enums.DbType;
-import com.example.app.config.database.DynamicRoutingDataSource;
-import com.example.app.config.properties.DabangDatabaseProperties;
+import com.example.app.configuration.database.DynamicRoutingDataSource;
+import com.example.app.configuration.properties.DabangDatabaseProperties;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import java.util.HashMap;
