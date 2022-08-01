@@ -1,7 +1,7 @@
 package com.example.app.application;
 
-import com.example.app.domain.RecommendRequestInfo;
-import com.example.app.domain.RecommendRequestsService;
+import com.example.app.domain.request.RecommendRequestInfo;
+import com.example.app.domain.request.RecommendRequestsService;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

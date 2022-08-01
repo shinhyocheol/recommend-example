@@ -1,4 +1,4 @@
-package com.example.app.interfaces;
+package com.example.app.interfaces.request;
 
 import java.util.List;
 import javax.validation.constraints.NotBlank;

@@ -1,6 +1,6 @@
-package com.example.app.infrastructure;
+package com.example.app.infrastructure.reqeust;
 
-import com.example.app.domain.RecommendRequestsStore;
+import com.example.app.domain.request.RecommendRequestsStore;
 import org.springframework.stereotype.Service;
 
 @Service

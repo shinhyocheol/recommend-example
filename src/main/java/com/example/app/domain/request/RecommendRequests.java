@@ -1,4 +1,4 @@
-package com.example.app.domain;
+package com.example.app.domain.request;
 
 import com.example.app.domain.BaseTimeEntity;
 import com.example.app.enums.ContractType;

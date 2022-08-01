@@ -1,8 +1,8 @@
-package com.example.app.interfaces;
+package com.example.app.interfaces.request;
 
 import com.example.app.application.RecommendRequestsFacade;
 import com.example.app.common.response.CommonResponse;
-import com.example.app.domain.RecommendRequestInfo;
+import com.example.app.domain.request.RecommendRequestInfo;
 import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;

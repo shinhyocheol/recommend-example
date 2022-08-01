@@ -1,6 +1,6 @@
-package com.example.app.infrastructure;
+package com.example.app.infrastructure.room;
 
-import com.example.app.domain.RecommendRoomsReader;
+import com.example.app.domain.room.RecommendRoomsReader;
 import org.springframework.stereotype.Service;
 
 @Service

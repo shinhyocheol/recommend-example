@@ -1,7 +1,7 @@
-package com.example.app.infrastructure;
+package com.example.app.infrastructure.reqeust;
 
-import com.example.app.domain.RecommendRequestInfo;
-import com.example.app.domain.RecommendRequestsReader;
+import com.example.app.domain.request.RecommendRequestInfo;
+import com.example.app.domain.request.RecommendRequestsReader;
 import java.util.List;
 import java.util.stream.Collectors;
 import lombok.RequiredArgsConstructor;

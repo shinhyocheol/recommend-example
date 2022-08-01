@@ -1,5 +1,7 @@
-package com.example.app.domain;
+package com.example.app.domain.room;
 
+import com.example.app.domain.BaseTimeEntity;
+import com.example.app.domain.request.RecommendRequests;
 import com.example.app.enums.RoomMappingStatusType;
 import com.example.app.enums.RoomTableType;
 import javax.persistence.Column;
@@ -56,15 +58,12 @@ public class RecommendRooms extends BaseTimeEntity {
      * Mybatis 또는 JDBC Template 을 통해 데이터 별도 조회할 것
      */
     @Comment(value = "일반매물 번호")
-    @Column(nullable = true)
     private Integer roomsSeq;
 
     @Comment(value = "간편매물 번호")
-    @Column(nullable = true)
     private Integer simpleRoomsSeq;
 
     @Comment(value = "싸인매물 번호")
-    @Column(nullable = true)
     private Integer signRoomsSeq;
 
     @Comment(value = "사용자 번호")

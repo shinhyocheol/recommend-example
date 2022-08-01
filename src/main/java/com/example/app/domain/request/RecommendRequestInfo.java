@@ -1,4 +1,4 @@
-package com.example.app.domain;
+package com.example.app.domain.request;
 
 import java.time.ZonedDateTime;
 import java.util.List;

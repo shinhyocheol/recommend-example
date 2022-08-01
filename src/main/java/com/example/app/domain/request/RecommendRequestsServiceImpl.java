@@ -1,4 +1,4 @@
-package com.example.app.domain;
+package com.example.app.domain.request;
 
 import java.util.List;
 import lombok.RequiredArgsConstructor;
