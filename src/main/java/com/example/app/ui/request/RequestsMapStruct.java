@@ -5,6 +5,6 @@ import com.example.app.domain.request.RequestCommand;
 import org.mapstruct.Mapper;
 
 @Mapper(config = MapStructConfig.class)
-public interface RequestMapStruct {
-    RequestCommand.RegisterRequest of(RequestDto.AddParam param);
+public interface RequestsMapStruct {
+    RequestCommand.RegisterRequest of(RequestsDto.AddParam param);
 }

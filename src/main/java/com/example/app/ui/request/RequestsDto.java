@@ -9,7 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 import org.hibernate.type.BigIntegerType;
 
-public class RequestDto {
+public class RequestsDto {
     @Getter
     @Setter
     @ToString
