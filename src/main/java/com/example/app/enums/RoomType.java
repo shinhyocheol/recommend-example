@@ -10,7 +10,7 @@ public enum RoomType {
     TWO_ROOM("투룸"),
     THREE_ROOM("쓰리룸 이상"),
     OFFICETEL("오피스텔"),
-    APT("아파트");
+    URBAN_LIVING_HOMES("도시형 생활주택");
 
     private final String description;
 
