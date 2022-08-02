@@ -1,6 +1,5 @@
 package com.example.app.ui.request;
 
-import com.example.app.application.RequestsFacade;
 import com.example.app.common.response.CommonResponse;
 import com.example.app.domain.request.RequestInfo;
 import com.example.app.domain.request.RequestsService;
