@@ -40,7 +40,7 @@ public class Feedbacks extends BaseTimeEntity {
     @ManyToOne
     @JoinColumn(
             name = "recommend_rooms_seq",
-            foreignKey = @ForeignKey(name = "fk_rocommend_feedbacks_rooms_seq")
+            foreignKey = @ForeignKey(name = "fk_recommend_feedbacks_rooms_seq")
     )
     private Rooms recommendRoom;
 

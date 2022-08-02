@@ -3,6 +3,7 @@ package com.example.app.ui.request;
 import com.example.app.application.RequestsFacade;
 import com.example.app.common.response.CommonResponse;
 import com.example.app.domain.request.RequestInfo;
+import com.example.app.domain.request.RequestsService;
 import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -22,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping(value = "/api/v1/recommend/requests")
 public class RequestsApiController {
-    private final RequestsFacade facade;
+    private final RequestsService service;
     private final RequestsMapStruct mapStruct;
 
     /**
@@ -35,7 +36,7 @@ public class RequestsApiController {
      */
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public CommonResponse addRequest(@RequestBody @Valid RequestsDto.AddParam param) throws Exception {
-        facade.addRequest(mapStruct.of(param));
+        service.addRequest(mapStruct.of(param));
         return CommonResponse.success("SUCCESS");
     }
 
@@ -48,7 +49,7 @@ public class RequestsApiController {
      */
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public CommonResponse getRequestList() throws Exception {
-        List<RequestInfo> requestList = facade.getRequestList();
+        List<RequestInfo> requestList = service.getRequestList();
         return CommonResponse.success(requestList);
     }
 
