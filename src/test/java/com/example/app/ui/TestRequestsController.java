@@ -1,8 +1,15 @@
 package com.example.app.ui;
 
 import com.example.app.configuration.TestAbstractController;
+import com.example.app.enums.ContractType;
+import com.example.app.enums.RoomType;
+import com.example.app.enums.StructureType;
 import com.example.app.ui.request.RequestsDto;
 import com.example.app.ui.request.RequestsDto.AddParam;
+import java.math.BigInteger;
+import java.util.Arrays;
+import java.util.List;
+import org.hibernate.type.BigIntegerType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.MediaType;
@@ -28,6 +35,22 @@ public class TestRequestsController extends TestAbstractController {
     @DisplayName("추천매물 신청 등록")
     @Test
     public void 추천매물_신청_등록() throws Exception {
+        //given
+        List<Integer> regionGidList = Arrays.asList(new Integer[] {1, 2});
+        List<Integer> subwayIdList = Arrays.asList(new Integer[] {1, 2});
+        ContractType contractType = ContractType.LEASE;
+        Long deposit = Long.valueOf(100000000);
+        Long roomSize = Long.valueOf((long) 59.59);
+        RoomType roomType = RoomType.ONE_ROOM;
+        StructureType roomStructureType = StructureType.ONE_ROOM_KITCHEN_ALL_IN_ONE;
+//        Integer roomFloor = ;
+        Long maintenanceCost;
+        String memo;
+
+        //when
         RequestsDto.AddParam param = new AddParam();
+
+
+        //then
     }
 }

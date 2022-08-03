@@ -14,17 +14,23 @@ public class RequestsDto {
     @Setter
     @ToString
     public static class AddParam {
-        private List<Integer> regionGidList;
-        private List<Integer> subwayIdList;
+        private Integer[] regionGids;
+        private Integer[] subwayIds;
         private ContractType contractType;
-        private Long deposit;
+        private Long maxDeposit;
+        private Long minDeposit;
+        private Long maxRentPrice;
+        private Long minRentPrice;
+        private Long maxRoomSize;
+        private Long minRoomSize;
         private Long rentPrice;
-        private BigIntegerType roomSize;
         private RoomType roomType;
         private StructureType roomStructureType;
-        private Integer roomFloor;
-        private BigIntegerType maintenanceCost;
+        private Integer[] roomFloors;
+        private Long maxMaintenanceCost;
+        private Long minMaintenanceCost;
         private String memo;
+        private Integer usersIdx;
     }
 
     @Getter

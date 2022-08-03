@@ -4,8 +4,6 @@ import com.example.app.domain.BaseTimeEntity;
 import com.example.app.domain.request.Requests;
 import com.example.app.enums.MappingStatusType;
 import com.example.app.enums.RoomJoinType;
-import com.vividsolutions.jts.geom.Geometry;
-import com.vividsolutions.jts.io.WKTReader;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -19,7 +17,6 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.geolatte.geom.codec.Wkt;
 import org.hibernate.annotations.Comment;
 
 @Getter

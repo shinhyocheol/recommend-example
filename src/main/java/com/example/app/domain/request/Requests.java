@@ -4,6 +4,8 @@ import com.example.app.domain.BaseTimeEntity;
 import com.example.app.enums.ContractType;
 import com.example.app.enums.StructureType;
 import com.example.app.enums.RoomType;
+import com.vladmihalcea.hibernate.type.array.IntArrayType;
+import com.vladmihalcea.hibernate.type.array.StringArrayType;
 import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,12 +21,15 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
-import org.hibernate.type.BigIntegerType;
+import org.hibernate.annotations.TypeDefs;
 
-@Getter
-@Entity
 @NoArgsConstructor
-@TypeDef(name = "intList", typeClass = org.hibernate.mapping.List.class)
+@Getter
+@TypeDefs({
+        @TypeDef(name = "array-int", typeClass = IntArrayType.class),
+        @TypeDef(name = "array-string", typeClass = StringArrayType.class)
+})
+@Entity
 @Table(name = "recommend_room_requests")
 public class Requests extends BaseTimeEntity {
     @Id
@@ -32,30 +37,41 @@ public class Requests extends BaseTimeEntity {
     private Integer seq;
 
     @Comment(value = "지역 코드목록")
-    @Type(type = "intList")
+    @Type(type = "array-int")
     @Column(name = "regionGids", columnDefinition = "integer[]")
-    private List<Integer> regionGidList;
+    private Integer[] regionGids;
 
     @Comment(value = "지하철역 코드목록")
-    @Type(type = "intList")
+    @Type(type = "array-int")
     @Column(name = "subwayIds", columnDefinition = "integer[]")
-    private List<Integer> subwayIdList;
+    private Integer[] subwayIds;
 
     @Comment(value = "매물 거래 타입")
     @Enumerated(EnumType.STRING)
     @Column(length = 30, nullable = false)
     private ContractType contractType;
 
-    @Comment(value = "보증금")
+    @Comment(value = "최대 보증금")
     @Column(nullable = false)
-    private Long deposit;
+    private Long maxDeposit;
 
-    @Comment(value = "월 납입금")
-    private Long rentPrice;
+    @Comment(value = "최소 보증금")
+    @Column(nullable = false)
+    private Long minDeposit;
 
-    @Comment(value = "매물 면적")
+    @Comment(value = "최대 월 임대료")
+    private Long maxRentPrice;
+
+    @Comment(value = "최소 월 임대료")
+    private Long minRentPrice;
+
+    @Comment(value = "최대 매물 면적")
     @Column(columnDefinition = "numeric")
-    private BigIntegerType roomSize;
+    private Long maxRoomSize;
+
+    @Comment(value = "최소 매물 면적")
+    @Column(columnDefinition = "numeric")
+    private Long minRoomSize;
 
     @Comment(value = "매물타입")
     @Enumerated(EnumType.STRING)
@@ -68,11 +84,17 @@ public class Requests extends BaseTimeEntity {
     private StructureType roomStructureType;
 
     @Comment(value = "해당층")
-    private Integer roomFloor;
+    @Type(type = "array-int")
+    @Column(columnDefinition = "integer[]")
+    private Integer[] roomFloors;
 
-    @Comment(value = "관리비")
+    @Comment(value = "최대 관리비")
     @Column(columnDefinition = "numeric")
-    private BigIntegerType maintenanceCost;
+    private Long maxMaintenanceCost;
+
+    @Comment(value = "최소 관리비")
+    @Column(columnDefinition = "numeric")
+    private Long minMaintenanceCost;
 
     @Comment(value = "메모")
     @Column(columnDefinition = "text")
@@ -90,23 +112,30 @@ public class Requests extends BaseTimeEntity {
     private Integer usersIdx;
 
     @Builder
-    public Requests(Boolean isActive, List<Integer> regionGidList,
-            List<Integer> subwayIdList, ContractType contractType, Long deposit,
-            Long rentPrice, BigIntegerType roomSize, RoomType roomType,
-            StructureType structureType, Integer roomFloor,
-            BigIntegerType maintenanceCost, String memo, Boolean isDeleted) {
-        this.isActive = isActive;
-        this.regionGidList = regionGidList;
-        this.subwayIdList = subwayIdList;
+    public Requests(Integer[] regionGids, Integer[] subwayIds, ContractType contractType,
+            Long maxDeposit, Long minDeposit,
+            Long maxRentPrice, Long minRentPrice,
+            Long maxRoomSize, Long minRoomSize,
+            Long minMaintenanceCost, Long maxMaintenanceCost,
+            RoomType roomType, StructureType structureType,
+            Integer[] roomFloors, String memo,
+            Boolean isDeleted, Integer usersIdx) {
+        this.regionGids = regionGids;
+        this.subwayIds = subwayIds;
         this.contractType = contractType;
-        this.deposit = deposit;
-        this.rentPrice = rentPrice;
-        this.roomSize = roomSize;
+        this.maxDeposit = maxDeposit;
+        this.minDeposit = minDeposit;
+        this.maxRentPrice = maxRentPrice;
+        this.minRentPrice = minRentPrice;
+        this.maxRoomSize = maxRoomSize;
+        this.minRoomSize = minRoomSize;
         this.roomType = roomType;
         this.roomStructureType = structureType;
-        this.roomFloor = roomFloor;
-        this.maintenanceCost = maintenanceCost;
+        this.roomFloors = roomFloors;
+        this.maxMaintenanceCost = maxMaintenanceCost;
+        this.minMaintenanceCost = minMaintenanceCost;
         this.memo = memo;
         this.isDeleted = isDeleted;
+        this.usersIdx = usersIdx;
     }
 }

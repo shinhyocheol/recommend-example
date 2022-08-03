@@ -3,41 +3,50 @@ package com.example.app.domain.request;
 import com.example.app.enums.ContractType;
 import com.example.app.enums.StructureType;
 import com.example.app.enums.RoomType;
-import java.util.List;
 import lombok.Builder;
 import lombok.Getter;
-import org.hibernate.type.BigIntegerType;
 
 public class RequestCommand {
 
     @Getter
     @Builder
     public static class RegisterRequest {
-        private final List<Integer> regionGidList;
-        private final List<Integer> subwayIdList;
+        private final Integer[] regionGids;
+        private final Integer[] subwayIds;
         private final ContractType contractType;
-        private final Long deposit;
+        private final Long maxDeposit;
+        private final Long minDeposit;
+        private final Long maxRentPrice;
+        private final Long minRentPrice;
+        private final Long maxRoomSize;
+        private final Long minRoomSize;
         private final Long rentPrice;
-        private final BigIntegerType roomSize;
         private final RoomType roomType;
         private final StructureType roomStructureType;
-        private final Integer roomFloor;
-        private final BigIntegerType maintenanceCost;
+        private final Integer[] roomFloors;
+        private final Long maxMaintenanceCost;
+        private final Long minMaintenanceCost;
         private final String memo;
+        private final Integer usersIdx;
 
         public Requests toEntity() {
             return Requests.builder()
-                    .regionGidList(regionGidList)
-                    .subwayIdList(subwayIdList)
+                    .regionGids(regionGids)
+                    .subwayIds(subwayIds)
                     .contractType(contractType)
-                    .deposit(deposit)
-                    .rentPrice(rentPrice)
-                    .roomSize(roomSize)
+                    .maxDeposit(maxDeposit)
+                    .minDeposit(minDeposit)
+                    .maxRentPrice(maxRentPrice)
+                    .minRentPrice(minRentPrice)
+                    .maxRoomSize(maxRoomSize)
+                    .minRoomSize(minRoomSize)
                     .roomType(roomType)
                     .structureType(roomStructureType)
-                    .roomFloor(roomFloor)
-                    .maintenanceCost(maintenanceCost)
+                    .roomFloors(roomFloors)
+                    .maxMaintenanceCost(maxMaintenanceCost)
+                    .minMaintenanceCost(minMaintenanceCost)
                     .memo(memo)
+                    .usersIdx(usersIdx)
                     .build();
         }
     }
