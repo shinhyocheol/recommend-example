@@ -1,7 +1,9 @@
 package com.example.app.ui.request;
 
 import com.example.app.common.response.CommonResponse;
+import com.example.app.domain.request.RequestInfo;
 import com.example.app.domain.request.RequestsService;
+import java.util.List;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,18 +39,18 @@ public class RequestsApiController {
         return CommonResponse.success("SUCCESS");
     }
 
-//    /**
-//     * <pre>
-//     *     추천매물 신청 목록 조회
-//     * </pre>
-//     * @return
-//     * @throws Exception
-//     */
-//    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
-//    public CommonResponse getRequestList() throws Exception {
-//        List<RequestInfo> requestList = service.getRequestList();
-//        return CommonResponse.success(requestList);
-//    }
+    /**
+     * <pre>
+     *     추천매물 신청 목록 조회
+     * </pre>
+     * @return
+     * @throws Exception
+     */
+    @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+    public CommonResponse getRequestList() throws Exception {
+        List<RequestInfo> requestList = service.getRequestList();
+        return CommonResponse.success(requestList);
+    }
 
     /**
      * <pre>

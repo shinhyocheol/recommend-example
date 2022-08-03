@@ -112,14 +112,24 @@ public class Requests extends BaseTimeEntity {
     private Integer usersIdx;
 
     @Builder
-    public Requests(Integer[] regionGids, Integer[] subwayIds, ContractType contractType,
-            Long maxDeposit, Long minDeposit,
-            Long maxRentPrice, Long minRentPrice,
-            Long maxRoomSize, Long minRoomSize,
-            Long minMaintenanceCost, Long maxMaintenanceCost,
-            RoomType roomType, StructureType structureType,
-            Integer[] roomFloors, String memo,
-            Boolean isDeleted, Integer usersIdx) {
+    public Requests(
+            Integer[] regionGids,
+            Integer[] subwayIds,
+            ContractType contractType,
+            Long maxDeposit,
+            Long minDeposit,
+            Long maxRentPrice,
+            Long minRentPrice,
+            Long maxRoomSize,
+            Long minRoomSize,
+            Long minMaintenanceCost,
+            Long maxMaintenanceCost,
+            RoomType roomType,
+            StructureType structureType,
+            Integer[] roomFloors,
+            String memo,
+            Integer usersIdx
+    ) {
         this.regionGids = regionGids;
         this.subwayIds = subwayIds;
         this.contractType = contractType;
@@ -135,7 +145,6 @@ public class Requests extends BaseTimeEntity {
         this.maxMaintenanceCost = maxMaintenanceCost;
         this.minMaintenanceCost = minMaintenanceCost;
         this.memo = memo;
-        this.isDeleted = isDeleted;
         this.usersIdx = usersIdx;
     }
 }

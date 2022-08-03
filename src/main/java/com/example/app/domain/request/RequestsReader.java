@@ -4,5 +4,5 @@ import java.util.List;
 
 public interface RequestsReader {
 
-//    List<RequestInfo> getRequestList();
+    List<RequestInfo> getRequestList();
 }

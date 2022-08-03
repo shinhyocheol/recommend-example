@@ -12,12 +12,12 @@ public class RequestsServiceImpl implements RequestsService {
     private final RequestsReader requestsReader;
     private final RequestsStore requestsStore;
 
-//    @Override
-//    @Transactional(readOnly = true)
-//    public List<RequestInfo> getRequestList() {
-//        List<RequestInfo> result = requestsReader.getRequestList();
-//        return result;
-//    }
+    @Override
+    @Transactional(readOnly = true)
+    public List<RequestInfo> getRequestList() {
+        List<RequestInfo> result = requestsReader.getRequestList();
+        return result;
+    }
 
     @Override
     @Transactional
