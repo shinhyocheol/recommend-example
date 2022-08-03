@@ -113,22 +113,10 @@ public class Requests extends BaseTimeEntity {
 
     @Builder
     public Requests(
-            Integer[] regionGids,
-            Integer[] subwayIds,
-            ContractType contractType,
-            Long maxDeposit,
-            Long minDeposit,
-            Long maxRentPrice,
-            Long minRentPrice,
-            Long maxRoomSize,
-            Long minRoomSize,
-            Long minMaintenanceCost,
-            Long maxMaintenanceCost,
-            RoomType roomType,
-            StructureType structureType,
-            Integer[] roomFloors,
-            String memo,
-            Integer usersIdx
+            Integer usersIdx, Integer[] regionGids, Integer[] subwayIds, ContractType contractType,
+            Long maxDeposit, Long minDeposit, Long maxRentPrice, Long minRentPrice,
+            Long maxRoomSize, Long minRoomSize, Long minMaintenanceCost, Long maxMaintenanceCost,
+            RoomType roomType, StructureType structureType, Integer[] roomFloors, String memo
     ) {
         this.regionGids = regionGids;
         this.subwayIds = subwayIds;
