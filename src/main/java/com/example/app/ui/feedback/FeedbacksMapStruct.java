@@ -1,4 +1,4 @@
-package com.example.app.ui.feedbakcs;
+package com.example.app.ui.feedback;
 
 public interface FeedbacksMapStruct {
 
