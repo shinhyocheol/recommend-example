@@ -37,7 +37,7 @@ public class Feedbacks extends BaseTimeEntity {
     @Column(columnDefinition = "TEXT")
     private String memo;
 
-    @Comment(value = "'싫어요' 타입인 경우 카테고리")
+    @Comment(value = "싫어요 타입인 경우 카테고리")
     @Column(length = 30)
     @Enumerated(value = EnumType.STRING)
     private FeedbackUnFavoriteType unfavoriteReasonType;

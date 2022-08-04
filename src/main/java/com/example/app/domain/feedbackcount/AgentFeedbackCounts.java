@@ -31,9 +31,9 @@ public class AgentFeedbackCounts extends BaseTimeEntity {
     @Column(nullable = false)
     private Integer usersIdx;
 
-    @Comment(value = "피드백 '좋아요' 수 현황")
+    @Comment(value = "피드백(좋아요) 수 현황")
     private Integer favoriteCount;
 
-    @Comment(value = "피드백 '싫어요' 수 현황")
+    @Comment(value = "피드백(싫어요) 수 현황")
     private Integer unfavoriteCount;
 }
