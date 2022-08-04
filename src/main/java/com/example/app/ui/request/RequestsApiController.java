@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -36,7 +35,7 @@ public class RequestsApiController {
     @PostMapping(produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     public CommonResponse addRequest(@RequestBody @Valid RequestsDto.AddParam param) throws Exception {
         service.addRequest(mapStruct.of(param));
-        return CommonResponse.success("SUCCESS");
+        return CommonResponse.success();
     }
 
     /**
@@ -76,6 +75,6 @@ public class RequestsApiController {
     @DeleteMapping(value = "/{seq}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CommonResponse deleteRequest(@PathVariable Integer seq) throws Exception {
         service.deleteRequestById(seq);
-        return CommonResponse.success("SUCCESS");
+        return CommonResponse.success();
     }
 }
