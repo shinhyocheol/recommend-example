@@ -19,6 +19,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.hibernate.annotations.Comment;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 import org.hibernate.annotations.Type;
 import org.hibernate.annotations.TypeDef;
 import org.hibernate.annotations.TypeDefs;
@@ -29,6 +31,8 @@ import org.hibernate.annotations.TypeDefs;
         @TypeDef(name = "array-int", typeClass = IntArrayType.class),
         @TypeDef(name = "array-string", typeClass = StringArrayType.class)
 })
+@DynamicInsert
+@DynamicUpdate
 @Entity
 @Table(name = "recommend_room_requests")
 public class Requests extends BaseTimeEntity {
@@ -67,11 +71,11 @@ public class Requests extends BaseTimeEntity {
 
     @Comment(value = "최대 매물 면적")
     @Column(columnDefinition = "numeric")
-    private Long maxRoomSize;
+    private Double maxRoomSize;
 
     @Comment(value = "최소 매물 면적")
     @Column(columnDefinition = "numeric")
-    private Long minRoomSize;
+    private Double minRoomSize;
 
     @Comment(value = "매물타입")
     @Enumerated(EnumType.STRING)
@@ -115,7 +119,7 @@ public class Requests extends BaseTimeEntity {
     public Requests(
             Integer usersIdx, Integer[] regionGids, Integer[] subwayIds, ContractType contractType,
             Long maxDeposit, Long minDeposit, Long maxRentPrice, Long minRentPrice,
-            Long maxRoomSize, Long minRoomSize, Long minMaintenanceCost, Long maxMaintenanceCost,
+            Double maxRoomSize, Double minRoomSize, Long minMaintenanceCost, Long maxMaintenanceCost,
             RoomType roomType, StructureType structureType, Integer[] roomFloors, String memo
     ) {
         this.regionGids = regionGids;

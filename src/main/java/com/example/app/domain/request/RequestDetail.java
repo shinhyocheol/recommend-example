@@ -11,7 +11,7 @@ import lombok.ToString;
 @ToString
 @Getter
 @RequiredArgsConstructor
-public class RequestInfo {
+public class RequestDetail {
     private final Integer seq;
     private final Boolean isActive;
     private final Integer[] regionGids;
@@ -21,8 +21,8 @@ public class RequestInfo {
     private final Long minDeposit;
     private final Long maxRentPrice;
     private final Long minRentPrice;
-    private final Long maxRoomSize;
-    private final Long minRoomSize;
+    private final Double maxRoomSize;
+    private final Double minRoomSize;
     private final RoomType roomType;
     private final StructureType roomStructureType;
     private final Integer[] roomFloors;
@@ -33,8 +33,8 @@ public class RequestInfo {
     private final ZonedDateTime savedTime;
     private final ZonedDateTime editedTime;
 
-    public static RequestInfo of(Requests request) {
-        return new RequestInfo(
+    public static RequestDetail of(Requests request) {
+        return new RequestDetail(
                 request.getSeq(),
                 request.getIsActive(),
                 request.getRegionGids(),

@@ -1,7 +1,7 @@
 package com.example.app.ui.request;
 
 import com.example.app.common.response.CommonResponse;
-import com.example.app.domain.request.RequestInfo;
+import com.example.app.domain.request.RequestDetail;
 import com.example.app.domain.request.RequestsService;
 import java.util.List;
 import javax.validation.Valid;
@@ -47,7 +47,7 @@ public class RequestsApiController {
      */
     @GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
     public CommonResponse getRequestList() throws Exception {
-        List<RequestInfo> requestList = service.getRequestList();
+        List<RequestDetail> requestList = service.getRequestList();
         return CommonResponse.success(requestList);
     }
 

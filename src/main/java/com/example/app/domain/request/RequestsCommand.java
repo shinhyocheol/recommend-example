@@ -6,7 +6,7 @@ import com.example.app.enums.RoomType;
 import lombok.Builder;
 import lombok.Getter;
 
-public class RequestCommand {
+public class RequestsCommand {
 
     @Getter
     @Builder
@@ -18,8 +18,8 @@ public class RequestCommand {
         private final Long minDeposit;
         private final Long maxRentPrice;
         private final Long minRentPrice;
-        private final Long maxRoomSize;
-        private final Long minRoomSize;
+        private final Double maxRoomSize;
+        private final Double minRoomSize;
         private final Long rentPrice;
         private final RoomType roomType;
         private final StructureType roomStructureType;

@@ -1,6 +1,6 @@
 package com.example.app.domain.request;
 
-import com.example.app.domain.request.RequestCommand.RegisterRequest;
+import com.example.app.domain.request.RequestsCommand.RegisterRequest;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -14,8 +14,8 @@ public class RequestsServiceImpl implements RequestsService {
 
     @Override
     @Transactional(readOnly = true)
-    public List<RequestInfo> getRequestList() {
-        List<RequestInfo> result = requestsReader.getRequestList();
+    public List<RequestDetail> getRequestList() {
+        List<RequestDetail> result = requestsReader.getRequestList();
         return result;
     }
 
@@ -26,7 +26,7 @@ public class RequestsServiceImpl implements RequestsService {
     }
 
     @Override
-    public RequestInfo getRequestBySeq(Integer seq) {
+    public RequestDetail getRequestBySeq(Integer seq) {
         return requestsReader.getRequestById(seq);
     }
 

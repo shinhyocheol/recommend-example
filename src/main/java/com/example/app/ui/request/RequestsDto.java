@@ -19,8 +19,8 @@ public class RequestsDto {
         private Long minDeposit;
         private Long maxRentPrice;
         private Long minRentPrice;
-        private Long maxRoomSize;
-        private Long minRoomSize;
+        private Double maxRoomSize;
+        private Double minRoomSize;
         private Long rentPrice;
         private RoomType roomType;
         private StructureType roomStructureType;
