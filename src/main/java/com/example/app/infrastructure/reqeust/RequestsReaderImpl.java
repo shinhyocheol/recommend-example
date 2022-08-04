@@ -1,6 +1,8 @@
 package com.example.app.infrastructure.reqeust;
 
+import com.example.app.common.exception.EntityNotFoundException;
 import com.example.app.domain.request.RequestInfo;
+import com.example.app.domain.request.Requests;
 import com.example.app.domain.request.RequestsReader;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,5 +19,11 @@ public class RequestsReaderImpl implements RequestsReader {
         return requestsRepository.findAll().stream()
                 .map(item -> RequestInfo.of(item))
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public RequestInfo getRequestById(Integer seq) {
+        Requests request = requestsRepository.findById(seq).orElseThrow(EntityNotFoundException::new);
+        return RequestInfo.of(request);
     }
 }

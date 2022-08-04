@@ -8,4 +8,8 @@ public interface RequestsService {
     List<RequestInfo> getRequestList();
 
     void addRequest(RegisterRequest command);
+
+    RequestInfo getRequestBySeq(Integer seq);
+
+    void deleteRequestById(Integer seq);
 }

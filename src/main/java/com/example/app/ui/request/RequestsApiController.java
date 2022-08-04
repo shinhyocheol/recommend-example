@@ -62,23 +62,7 @@ public class RequestsApiController {
      */
     @GetMapping(value = "/{seq}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CommonResponse getRequestDetail(@PathVariable Integer seq) throws Exception {
-        return CommonResponse.success(null);
-    }
-
-    /**
-     * <pre>
-     *     추천매물 신청 수정
-     * </pre>
-     * @param seq
-     * @param param
-     * @return
-     * @throws Exception
-     */
-    @PutMapping(value = "/{seq}", produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
-    public CommonResponse editRequest(
-            @PathVariable Integer seq,
-            @RequestBody @Valid RequestsDto.EditParam param) throws Exception {
-        return CommonResponse.success("SUCCESS");
+        return CommonResponse.success(service.getRequestBySeq(seq));
     }
 
     /**
@@ -91,6 +75,7 @@ public class RequestsApiController {
      */
     @DeleteMapping(value = "/{seq}", produces = MediaType.APPLICATION_JSON_VALUE)
     public CommonResponse deleteRequest(@PathVariable Integer seq) throws Exception {
+        service.deleteRequestById(seq);
         return CommonResponse.success("SUCCESS");
     }
 }

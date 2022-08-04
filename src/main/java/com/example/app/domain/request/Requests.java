@@ -135,4 +135,8 @@ public class Requests extends BaseTimeEntity {
         this.memo = memo;
         this.usersIdx = usersIdx;
     }
+
+    public void deleteRequestBySeq() {
+        this.isDeleted = true;
+    }
 }

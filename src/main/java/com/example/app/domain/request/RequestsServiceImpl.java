@@ -22,7 +22,16 @@ public class RequestsServiceImpl implements RequestsService {
     @Override
     @Transactional
     public void addRequest(RegisterRequest command) {
-        Requests requests = command.toEntity();
-        requestsStore.store(requests);
+        requestsStore.store(command.toEntity());
+    }
+
+    @Override
+    public RequestInfo getRequestBySeq(Integer seq) {
+        return requestsReader.getRequestById(seq);
+    }
+
+    @Override
+    public void deleteRequestById(Integer seq) {
+        requestsStore.delete(seq);
     }
 }
