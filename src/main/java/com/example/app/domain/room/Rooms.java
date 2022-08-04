@@ -38,6 +38,10 @@ public class Rooms extends BaseTimeEntity {
     @Column(nullable = false, columnDefinition = "varchar(30) default 'RECOMMEND'")
     private MappingStatusType status;
 
+    @Comment(value = "추천매물 코멘트")
+    @Column(nullable = false, columnDefinition = "TEXT")
+    private String comment;
+
     @Comment(value = "추천매물 신청번호")
     @ManyToOne
     @JoinColumn(
